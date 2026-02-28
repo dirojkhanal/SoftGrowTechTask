@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>To-Do List</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <div class="app">
+
+    <h1>My Tasks</h1>
+    <p class="subtitle">Stay on top of your day.</p>
+
+    <!-- ADD TASK FORM -->
+    <div class="input-row">
+      <input
+        type="text"
+        id="taskInput"
+        placeholder="Add a new task..."
+        maxlength="100"
+      />
+      <button id="addBtn">Add</button>
+    </div>
+
+    <!-- FILTER BUTTONS -->
+    <div class="filters">
+      <button class="filter-btn active" data-filter="all">All</button>
+      <button class="filter-btn" data-filter="active">Active</button>
+      <button class="filter-btn" data-filter="completed">Completed</button>
+    </div>
+
+    <!-- TASK LIST -->
+    <ul id="taskList"></ul>
+
+    <!-- EMPTY STATE -->
+    <p class="empty" id="emptyMsg">No tasks yet. Add one above!</p>
+
+    <!-- FOOTER INFO -->
+    <div class="task-footer" id="taskFooter">
+      <span id="taskCount"></span>
+      <button id="clearBtn">Clear completed</button>
+    </div>
+
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
