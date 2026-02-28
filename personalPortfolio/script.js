@@ -1,4 +1,4 @@
-// ── SCROLL FADE IN ──
+//  SCROLL FADE IN
 const fades = document.querySelectorAll('.fade');
 
 const observer = new IntersectionObserver((entries) => {
@@ -13,7 +13,7 @@ const observer = new IntersectionObserver((entries) => {
 fades.forEach(el => observer.observe(el));
 
 
-// ── SMOOTH SCROLL ──
+// SMOOTH SCROLL 
 document.querySelectorAll('a[href^="#"]').forEach(link => {
   link.addEventListener('click', e => {
     const target = document.querySelector(link.getAttribute('href'));
@@ -25,7 +25,7 @@ document.querySelectorAll('a[href^="#"]').forEach(link => {
 });
 
 
-// ── ACTIVE NAV HIGHLIGHT ──
+// ACTIVE NAV HIGHLIGHT 
 const sections = document.querySelectorAll('section, #hero');
 const navLinks = document.querySelectorAll('.nav-links a');
 
