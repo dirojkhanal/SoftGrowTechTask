@@ -1,8 +1,8 @@
-// ── STATE ──
+//  STATE 
 let tasks = JSON.parse(localStorage.getItem('tasks')) || [];
 let currentFilter = 'all';
 
-// ── DOM ELEMENTS ──
+//  DOM ELEMENTS 
 const taskInput  = document.getElementById('taskInput');
 const addBtn     = document.getElementById('addBtn');
 const taskList   = document.getElementById('taskList');
@@ -11,12 +11,12 @@ const taskCount  = document.getElementById('taskCount');
 const clearBtn   = document.getElementById('clearBtn');
 const filterBtns = document.querySelectorAll('.filter-btn');
 
-// ── SAVE TO LOCALSTORAGE ──
+//SAVE TO LOCALSTORAGE
 function saveTasks() {
   localStorage.setItem('tasks', JSON.stringify(tasks));
 }
 
-// ── RENDER TASKS ──
+//  RENDER TASKS 
 function render() {
   // Filter tasks based on current filter
   let filtered = tasks;
@@ -70,7 +70,7 @@ function render() {
   taskCount.textContent = remaining + ' task' + (remaining !== 1 ? 's' : '') + ' left';
 }
 
-// ── ADD TASK ──
+// ADD TASK 
 function addTask() {
   const text = taskInput.value.trim();
   if (text === '') return;
@@ -88,7 +88,7 @@ function addTask() {
   taskInput.focus();
 }
 
-// ── TOGGLE COMPLETE ──
+//  TOGGLE COMPLETE 
 function toggleTask(id) {
   tasks = tasks.map(function (t) {
     if (t.id === id) {
@@ -100,31 +100,31 @@ function toggleTask(id) {
   render();
 }
 
-// ── REMOVE TASK ──
+//  REMOVE TASK 
 function removeTask(id) {
   tasks = tasks.filter(function (t) { return t.id !== id; });
   saveTasks();
   render();
 }
 
-// ── CLEAR COMPLETED ──
+//  CLEAR COMPLETED 
 clearBtn.addEventListener('click', function () {
   tasks = tasks.filter(function (t) { return !t.completed; });
   saveTasks();
   render();
 });
 
-// ── ADD ON BUTTON CLICK ──
+//  ADD ON BUTTON CLICK 
 addBtn.addEventListener('click', addTask);
 
-// ── ADD ON ENTER KEY ──
+// ADD ON ENTER KEY 
 taskInput.addEventListener('keydown', function (e) {
   if (e.key === 'Enter') {
     addTask();
   }
 });
 
-// ── FILTER BUTTONS ──
+//  FILTER BUTTONS 
 filterBtns.forEach(function (btn) {
   btn.addEventListener('click', function () {
     currentFilter = btn.getAttribute('data-filter');
@@ -136,5 +136,5 @@ filterBtns.forEach(function (btn) {
   });
 });
 
-// ── INITIAL RENDER ──
+// INITIAL RENDER 
 render();
